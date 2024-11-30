@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form action="/order" method="post">
+      <label>상품명:<input name="name" type="text"></label>
+      <label>가격: <input name="price" type="text"></label>
+      <label>수량: <input name="quantity" type="text"></label>
+      <input type="submit" value="추가">
+      <ul>
+          <th:block th:each="error : ${errors}">
+              <li th:text="${error.defaultMessage}"></li>
+          </th:block>
+      </ul>
+      <div th:if="${duplicateError}">
+        <p th:text="${duplicateError}"></p>
+      </div>
+  </form>
+</body>
+</html>
